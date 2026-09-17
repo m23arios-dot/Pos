@@ -114,7 +114,7 @@ const categoryIcons={
   'Starters':'✦','Salate':'○','Pita und Gyros Box':'▰','Gyros Souvlaki und Suzuki':'●','Highlights Bei Maria':'★','Unsere Lamm-Spezialitäten':'◆','Schnitzel Klassiker':'□','Kinder & Seniorenteller':'♙','Beilagen':'▪','Getränke':'◉','Desserts':'◇'
 };
 function renderCats(){
-  catsEl.innerHTML = Object.keys(data).map(c=>`<button type="button" class="cat ${c===cat?'active':''}" onclick="selectCat('${c.replaceAll("'","\\'")}')"><span class="cat-icon">${categoryIcons[c]||'•'}</span><span>${c}</span></button>`).join('');
+  catsEl.innerHTML = Object.keys(data).map(c=>`<button type="button" class="cat ${c===cat?'active':''}" onclick="selectCat('${c.replaceAll("'","\\'")}')"><span>${c}</span></button>`).join('');
 }
 function selectCat(c, keepHighlight=false){
   cat=c;
