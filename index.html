@@ -25,7 +25,20 @@ main{min-width:0}.title{font-size:28px;font-weight:800;margin:4px 0 12px}.grid{d
 .order{background:var(--panel);border:1px solid #252b2e;border-radius:14px;overflow:hidden;position:sticky;top:108px;height:fit-content}.orderhead{background:var(--pink);padding:16px;font-size:25px;font-weight:800;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px}.orderhead input{width:105px;background:#fff;color:#111;border:0;border-radius:10px;padding:7px 8px;font-size:25px;font-weight:800;text-align:center;outline:none}.rows{padding:5px 12px}.row{display:grid;grid-template-columns:30px 1fr auto;gap:7px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}.rowname{font-size:14px}.del{color:#ff667d;cursor:pointer;font-size:18px}.total{display:flex;justify-content:space-between;padding:18px 14px;font-size:19px;font-weight:700}.total b{color:var(--pink);font-size:27px}.actions{display:grid;grid-template-columns:1fr;gap:8px;padding:0 12px 12px}.action{border:0;border-radius:12px;padding:17px;color:#fff;font-weight:800;font-size:17px;cursor:pointer}.cash{background:var(--green)}.kitchen{background:var(--orange)}.secondary{background:#22282b;border:1px solid var(--line)}
 footer{text-align:center;color:#858b8f;font-size:13px;padding:18px}
 .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}.modal-backdrop.show{display:flex}.modal{width:min(420px,100%);background:#171b1d;border:1px solid #444;border-radius:16px;padding:22px;box-shadow:0 20px 60px #000}.modal h2{margin:0 0 18px}.modal label{display:block;font-size:14px;color:#bbb;margin:12px 0}.modal input{display:block;width:100%;margin-top:6px;background:#0e1112;border:1px solid #3b4246;color:#fff;border-radius:9px;padding:13px;font-size:17px;outline:none}.modal input:focus{border-color:var(--pink)}.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
-@media(max-width:1050px){.app{grid-template-columns:180px minmax(0,1fr) 310px}.grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:761px) and (max-width:1300px){
+  .app{grid-template-columns:150px minmax(0,1fr) 335px;gap:10px;padding:10px;max-width:none}
+  .cat{padding:13px 10px;font-size:14px}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .item{min-height:112px;padding:8px}
+  .num{font-size:24px}
+  .name{font-size:14px;line-height:1.15}
+  .price{font-size:18px}
+  .product-main{padding:8px}
+  .order{width:100%;max-width:335px}
+  .orderhead{font-size:21px;padding:12px;gap:7px}
+  .orderhead input{width:72px;font-size:21px;padding:5px}
+  .action{padding:13px 7px;font-size:14px}
+}
 @media(max-width:760px){
  body{padding-bottom:20px}
  header{height:104px;padding:12px 22px;position:relative;border-bottom:1px solid #2b3033}
@@ -82,14 +95,14 @@ footer{text-align:center;color:#858b8f;font-size:13px;padding:18px}
 <script>
 const catsEl=document.getElementById('cats'), titleEl=document.getElementById('title'), itemsEl=document.getElementById('items'), rowsEl=document.getElementById('rows'), sumEl=document.getElementById('sum');
 const data={
-"Starters":[["1","Tzatziki (200g)","5,50"],["10","Knoblauchbrot","5,00"],["16","Saganaki","8,80"],["7","Feta in Folie gegrillt","8,80"],["9","Peperoni (griechische Peperoni)","5,50"],["8","Gegrillte Peperoni mit Knoblauch","7,50"],["82","Oliven","5,50"]],
-"Salate":[["19","Gemischter griechischer Salat","14,30"],["20","Thunfischsalat","14,30"],["33","Souvlaki Salat","15,50"],["34","Hähnchen Salat","15,50"],["24","Gyros Salat","15,50"],["39","Lamm Salat","15,50"]],
-"Pita und Gyros Box":[["54","Gyros-Box","8,50"],["27","Gyros Pita","7,50"],["28","Suzuki Pita","7,50"],["29","Veggie Pita","7,50"],["30","Souvlaki Pita","7,50"]],
-"Gyros Souvlaki und Suzuki":[["24","Gyros · groß","15,50"],["63","Gyros XXL","18,00"],["25","Gyros in Metaxasauce","16,50"],["26","Gyros mit Weichkäse überbacken · groß","16,50"],["30","Souvlaki · groß","15,50"],["31","Souvlaki mit Butterkäse überbacken","16,50"],["32","Teufel-Spieß (scharf)","16,50"],["33","Bifteki gefüllt mit Weichkäse","16,50"],["34","Suzuki","15,50"],["35","Suzuki mit Butterkäse überbacken","16,50"]],
-"Highlights Bei Maria":[["56","Grillteller","24,50"],["57","Wohnbauteller","17,00"],["37","Korfu-Teller","19,50"],["39","Apollon-Teller","16,50"],["38","Hellas-Teller","16,50"],["61","Gegrillte Hähnchenbrust","16,50"]],
+"Starters":[["1","Tzatziki (200g)","5,50"],["11","Knoblauchbrot","5,00"],["10","Saganaki","8,80"],["9","Feta in Folie gegrillt","8,80"],["6","Peperoni (griechische Peperoni)","5,50"],["7","Gegrillte Peperoni mit Knoblauch","7,50"],["82","Oliven","5,50"]],
+"Salate":[["19","Gemischter griechischer Salat","14,30"],["20","Thunfischsalat","14,30"],["39S","Souvlaki Salat","15,50"],["39H","Hähnchen Salat","15,50"],["39G","Gyros Salat","15,50"],["39L","Lamm Salat","15,50"]],
+"Pita und Gyros Box":[["54","Gyros-Box","8,50"],["27","Gyros Pita","7,50"],["28","Suzuki Pita","7,50"],["29","Veggie Pita","7,50"],["30","Souvlaki Pita","7,50"],["","Hähnchen Pita","7,50"]],
+"Gyros Souvlaki und Suzuki":[["24","Gyros · groß","15,50"],["63","Gyros XXL","18,00"],["55","Gyros in Metaxasauce","16,50"],["25","Gyros mit Butterkäse überbacken · groß","16,50"],["25a","Gyros mit Butterkäse überbacken · klein","14,50"],["26","Gyros mit Weichkäse überbacken · groß","16,50"],["26a","Gyros mit Weichkäse überbacken · klein","14,50"],["30","Souvlaki · groß","15,50"],["30a","Souvlaki · klein","13,50"],["31","Souvlaki mit Butterkäse überbacken","16,50"],["31a","Souvlaki mit Butterkäse überbacken · klein","13,50"],["32","Teufel-Spieß (scharf)","16,50"],["32a","Teufel-Spieß (scharf) · klein","13,50"],["33","Bifteki gefüllt mit Weichkäse","16,50"],["34","Suzuki","15,50"],["35","Suzuki mit Butterkäse überbacken","16,50"]],
+"Highlights Bei Maria":[["56","Grillteller","24,50"],["57","Wohnbauteller","17,00"],["37","Korfu-Teller","19,50"],["39","Apollon-Teller","16,50"],["38","Hellas-Teller","16,50"],["61","Gegrillte Hähnchenbrust","16,50"],["","Gyros in BBQ Soße und Käse überbacken","16,50"]],
 "Unsere Lamm-Spezialitäten":[["101","Sparta-Teller","18,50"],["105","Herkules-Teller","18,50"],["104","Adamos-Teller","22,00"],["100","Dionysos-Teller","18,50"]],
 "Schnitzel Klassiker":[["41","Jägerschnitzel","17,50"],["40","Schnitzel Wiener Art","16,00"]],
-"Kinder & Seniorenteller":[["48","Gyros","9,50"],["50","Chicken Nuggets · 5 Stück","9,50"],["51","Souvlaki","9,50"],["52","Schnitzel","9,50"],["15","Currywurst","10,00"]],
+"Kinder & Seniorenteller":[["48","Gyros","9,50"],["50","Chicken Nuggets · 5 Stück","9,50"],["36","Chicken Nuggets · 10 Stück","10,50"],["51","Souvlaki","9,50"],["52","Schnitzel","9,50"],["15","Currywurst","10,00"]],
 "Beilagen":[["12","Pommes","4,00"],["13","Tzatziki","3,50"]],
 "Getränke":[["14","Cola 0,33l","3,00"],["15","Fanta 0,33l","3,00"],["16","Bier 0,5l","4,00"],["17","Wein 0,2l","4,50"]],
 "Desserts":[["18","Dessert","5,50"]]
@@ -101,7 +114,7 @@ const categoryIcons={
   'Starters':'✦','Salate':'○','Pita und Gyros Box':'▰','Gyros Souvlaki und Suzuki':'●','Highlights Bei Maria':'★','Unsere Lamm-Spezialitäten':'◆','Schnitzel Klassiker':'□','Kinder & Seniorenteller':'♙','Beilagen':'▪','Getränke':'◉','Desserts':'◇'
 };
 function renderCats(){
-  catsEl.innerHTML = Object.keys(data).map(c=>`<button type="button" class="cat ${c===cat?'active':''}" onclick="selectCat('${c.replaceAll("'","\\'")}')"><span class="cat-icon">${categoryIcons[c]||'•'}</span><span>${c}</span></button>`).join('');
+  catsEl.innerHTML = Object.keys(data).map(c=>`<button type="button" class="cat ${c===cat?'active':''}" onclick="selectCat('${c.replaceAll("'","\\'")}')"><span>${c}</span></button>`).join('');
 }
 function selectCat(c, keepHighlight=false){
   cat=c;
@@ -255,11 +268,7 @@ function searchArticle(){
   }
   let m=matches[0];
   if(matches.length>1){
-    const choice=prompt('Mehrere Artikel mit dieser Nummer gefunden:
-'+matches.map((m,i)=>`${i+1}. ${m.catName} · ${m.x[1]} · ${m.x[2]} €`).join('
-')+'
-
-Nummer auswählen:');
+    const choice=prompt('Mehrere Artikel mit dieser Nummer gefunden:\n'+matches.map((m,i)=>`${i+1}. ${m.catName} · ${m.x[1]} · ${m.x[2]} €`).join('\\n')+'\\n\\nNummer auswählen:');
     const idx=parseInt(choice,10)-1;
     if(!Number.isInteger(idx)||!matches[idx]) return;
     m=matches[idx];
